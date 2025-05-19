@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     animateElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-15px)';
+            this.style.transform = 'translateY(-15px) scale(1.02)';
             this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.12)';
         });
         
@@ -93,12 +93,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
         
-        document.querySelectorAll('.hero:before, .matchmaker:after').forEach(element => {
-            const moveX = (mouseX - window.innerWidth / 2) * 0.05;
-            const moveY = (mouseY - window.innerHeight / 2) * 0.05;
+        // 背景形状跟随鼠标移动
+        document.querySelectorAll('.parallax-bg .shape').forEach(element => {
+            const moveX = (mouseX - window.innerWidth / 2) * 0.03;
+            const moveY = (mouseY - window.innerHeight / 2) * 0.03;
             
             element.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
+        
+        // 添加光标特效
+        addCursorEffect(e.clientX, e.clientY);
     });
     
     // 加载时为用户卡片添加动画
@@ -129,4 +133,54 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 600);
         });
     });
+    
+    // 添加数字计数动画
+    animateNumbers();
+    
+    // 添加鼠标光标特效
+    function addCursorEffect(x, y) {
+        const cursor = document.createElement('div');
+        cursor.className = 'cursor-effect';
+        cursor.style.left = x + 'px';
+        cursor.style.top = y + 'px';
+        document.body.appendChild(cursor);
+        
+        setTimeout(() => {
+            cursor.remove();
+        }, 800);
+    }
+    
+    // 为按钮添加悬浮转场动画
+    document.querySelectorAll('.button').forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.querySelector('i')?.classList.add('fa-beat');
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.querySelector('i')?.classList.remove('fa-beat');
+        });
+    });
+    
+    // 数字滚动动画
+    function animateNumbers() {
+        const statsEl = document.querySelector('.stats .highlight-number');
+        if (!statsEl) return;
+        
+        const targetNumber = 800000;
+        const duration = 2000; // 2秒
+        const framesPerSecond = 60;
+        const totalFrames = duration / 1000 * framesPerSecond;
+        const increment = targetNumber / totalFrames;
+        
+        let currentNumber = 0;
+        const counter = setInterval(() => {
+            currentNumber += increment;
+            if (currentNumber >= targetNumber) {
+                clearInterval(counter);
+                statsEl.textContent = '800,000+';
+            } else {
+                statsEl.textContent = Math.floor(currentNumber).toLocaleString() + '+';
+            }
+        }, 1000 / framesPerSecond);
+    }
 }); 
