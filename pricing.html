@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>价格方案 - 红娘暖暖</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- 关键CSS内联 -->
+    <style>
+        /* 防止页面闪烁的关键样式 */
+        body { opacity: 0; transition: opacity 0.3s ease; }
+        body.loaded { opacity: 1; }
+        .page-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 9999; display: none; }
+    </style>
+    
+    <!-- 样式表 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pricing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- 立即显示页面 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>红娘暖暖</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="index.html#about">关于我们</a></li>
+                    <li><a href="index.html#features">服务特色</a></li>
+                    <li><a href="index.html#matchmaker">红娘服务</a></li>
+                    <li><a href="pricing.html" class="active">价格</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="#" class="button primary"><i class="fab fa-apple"></i> 苹果下载</a>
+                <a href="#" class="button secondary"><i class="fab fa-android"></i> 安卓下载</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 价格横幅 -->
+    <section class="pricing-hero">
+        <div class="parallax-bg">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <h1 class="main-title">一张相亲卡，解锁脱单全流程</h1>
+            <p class="subtitle">免费见面 + 四大专属服务，助你快速找到理想伴侣</p>
+        </div>
+    </section>
+
+    <!-- 限时优惠提示 -->
+    <div class="promo-banner">
+        <div class="container">
+            <i class="fas fa-gift"></i>
+            <span>限时特惠！前100名购卡用户赠送《高情商聊天话术库》</span>
+            <span class="countdown" id="countdown"></span>
+        </div>
+    </div>
+
+    <!-- 价格卡片 -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="price-cards">
+                <!-- 单次卡 -->
+                <div class="price-card">
+                    <div class="discount-badge">限时5折</div>
+                    <h3>单次相亲卡</h3>
+                    <div class="price">
+                        <span class="original-price">¥198</span>
+                        <span class="current-price">¥99</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 1次免费见面机会</li>
+                        <li><i class="fas fa-check"></i> 智能匹配推荐</li>
+                        <li><i class="fas fa-check"></i> 基础约会指导</li>
+                        <li><i class="fas fa-check"></i> 7天服务保障</li>
+                    </ul>
+                    <button class="buy-button">立即购买</button>
+                </div>
+
+                <!-- 10张卡 -->
+                <div class="price-card popular">
+                    <div class="popular-badge">最受欢迎</div>
+                    <div class="discount-badge">限时5折</div>
+                    <h3>10张相亲卡</h3>
+                    <div class="price">
+                        <span class="original-price">¥1980</span>
+                        <span class="current-price">¥990</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 10次免费见面机会</li>
+                        <li><i class="fas fa-check"></i> VIP优先匹配</li>
+                        <li><i class="fas fa-check"></i> 专属恋爱导师</li>
+                        <li><i class="fas fa-check"></i> 主页优化服务</li>
+                        <li><i class="fas fa-check"></i> 3个月有效期</li>
+                    </ul>
+                    <button class="buy-button primary">立即购买</button>
+                </div>
+
+                <!-- 20张卡 -->
+                <div class="price-card">
+                    <div class="discount-badge">限时6折</div>
+                    <h3>20张相亲卡</h3>
+                    <div class="price">
+                        <span class="original-price">¥3960</span>
+                        <span class="current-price">¥1580</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> 20次免费见面机会</li>
+                        <li><i class="fas fa-check"></i> SVIP尊享服务</li>
+                        <li><i class="fas fa-check"></i> 全程红娘跟进</li>
+                        <li><i class="fas fa-check"></i> 专业摄影服务</li>
+                        <li><i class="fas fa-check"></i> 6个月有效期</li>
+                        <li><i class="fas fa-check"></i> 赠送12期恋爱课程</li>
+                    </ul>
+                    <button class="buy-button">立即购买</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心权益展示 -->
+    <section class="core-benefits">
+        <div class="container">
+            <h2 class="section-title">核心权益展示</h2>
+            <div class="divider"></div>
+            
+            <div class="benefit-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                        <span class="ai-badge">AI算法精准推荐</span>
+                    </div>
+                    <h3>免费见面机会</h3>
+                    <p>智能匹配高契合度女生，线下见面0费用</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>一对一约会指导</h3>
+                    <p>资深恋爱导师全程陪跑，从破冰话题到约会地点全攻略</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>个人主页优化服务</h3>
+                    <p>摄影师+文案团队打造吸睛主页，匹配率提升300%</p>
+                    <ul class="sub-features">
+                        <li>高清形象照拍摄</li>
+                        <li>兴趣标签优化</li>
+                        <li>动态内容策划</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>恋爱关系指导</h3>
+                    <p>从暧昧到确立关系，心理学顾问定制专属推进方案</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 增值服务分层 -->
+    <section class="tiered-services">
+        <div class="container">
+            <h2 class="section-title">不止于见面，全方位恋爱赋能</h2>
+            <div class="divider"></div>
+            
+            <div class="service-tiers">
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <i class="fas fa-star"></i>
+                        <h3>基础版相亲卡</h3>
+                    </div>
+                    <p class="tier-desc">适合想快速扩大社交圈的用户，含3次线上破冰指导</p>
+                    <div class="tier-features">
+                        <span>免费见面</span>
+                        <span>基础指导</span>
+                    </div>
+                </div>
+
+                <div class="tier-card vip">
+                    <div class="tier-header">
+                        <i class="fas fa-crown"></i>
+                        <h3>尊享版相亲卡</h3>
+                    </div>
+                    <p class="tier-desc">VIP客服优先推送优质对象，赠送12期《亲密关系沟通课》</p>
+                    <div class="tier-features">
+                        <span>全服务包</span>
+                        <span>优先匹配</span>
+                        <span>专属课程</span>
+                    </div>
+                </div>
+
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <i class="fas fa-building"></i>
+                        <h3>企业定制版</h3>
+                    </div>
+                    <p class="tier-desc">为员工批量采购享7折优惠，提供匿名匹配保护隐私</p>
+                    <div class="tier-features">
+                        <span>团购优惠</span>
+                        <span>隐私保护</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户信任体系 -->
+    <section class="trust-system">
+        <div class="container">
+            <h2 class="section-title">值得信赖的脱单平台</h2>
+            <div class="divider"></div>
+            
+            <div class="trust-content">
+                <div class="data-visualization">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="8932">0</div>
+                        <p>成功配对情侣</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="28" data-suffix="天">0天</div>
+                        <p>平均脱单周期</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="98" data-suffix="%">0%</div>
+                        <p>用户满意度</p>
+                    </div>
+                </div>
+
+                <div class="security-features">
+                    <h3>安全保障承诺</h3>
+                    <div class="security-grid">
+                        <div class="security-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>三重身份认证</h4>
+                            <p>人脸识别+学历验证+职业背调</p>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-lock"></i>
+                            <h4>端到端加密</h4>
+                            <p>聊天内容全程加密保护</p>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-redo"></i>
+                            <h4>7天保障</h4>
+                            <p>7天内无匹配可免费更换对象</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务流程 -->
+    <section class="service-process">
+        <div class="container">
+            <h2 class="section-title">五步极简流程</h2>
+            <div class="divider"></div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>购买激活</h3>
+                    <p>选择适合的套餐</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>资料优化</h3>
+                    <p>专业团队包装</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>智能匹配</h3>
+                    <p>AI精准推荐</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>线下见面</h3>
+                    <p>真实约会体验</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>关系推进</h3>
+                    <p>专属恋爱指导</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户证言 -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">那些年错过的缘分，这次我们帮你牢牢抓住</h2>
+            <div class="divider"></div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">使用拍照服务后，我的匹配请求增长了5倍！</p>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/50" alt="用户头像">
+                        <div>
+                            <h4>张先生</h4>
+                            <span>28岁，互联网从业者</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">导师指导3次约会就脱单，原来聊天真有方法论</p>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/50" alt="用户头像">
+                        <div>
+                            <h4>李女士</h4>
+                            <span>26岁，金融分析师</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行动号召 -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>别再错过心动的信号——你的专属恋爱助理已上线</h2>
+                <p>企业团购享免费情感讲座，助力员工幸福力提升</p>
+                <div class="cta-actions">
+                    <button class="button primary large">立即领取脱单礼包 →</button>
+                    <button class="button secondary large">预约免费恋爱诊断</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <h2>红娘暖暖</h2>
+                    <p>让每一份真爱都有可能</p>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone-alt"></i> 违法和不良信息举报电话：0571-86916157</p>
+                    <p><i class="fas fa-headset"></i> 客户服务专线：0571-86916157</p>
+                    <p><i class="fas fa-envelope"></i> 举报邮箱：Aixiaohongniang@163.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>© 2025 红娘暖暖 浙ICP备2025172898号-1</p>
+                    <p>杭州那美生活科技有限公司</p>
+                </div>
+                <div class="company-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 地址：浙江省杭州市余杭区仓前街道龙泉路3号509室</p>
+                    <p><i class="fas fa-envelope-open"></i> 邮编：310000</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-shield-alt"></i> 隐私政策</a>
+                    <a href="#"><i class="fas fa-file-contract"></i> 用户协议</a>
+                    <a href="#"><i class="fas fa-info-circle"></i> 关于我们</a>
+                    <a href="#"><i class="fas fa-code-branch"></i> 版本号：1.0.0</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 底部浮动条 -->
+    <div class="floating-bar">
+        <div class="floating-content">
+            <i class="fas fa-gift"></i>
+            <span>前100名购卡用户赠送《高情商聊天话术库》</span>
+            <button class="floating-cta">立即抢购</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/pricing.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html> 

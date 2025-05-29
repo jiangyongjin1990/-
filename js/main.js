@@ -113,25 +113,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100 * index);
     });
     
-    // 按钮波纹动画效果
-    const buttons = document.querySelectorAll('.button');
-    buttons.forEach(button => {
-        button.addEventListener('mousedown', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+    // 涟漪效果
+    function addRippleEffect(element) {
+        element.addEventListener('click', function(e) {
+            // 移除之前的涟漪
+            const existingRipple = this.querySelector('.ripple');
+            if (existingRipple) {
+                existingRipple.remove();
+            }
             
+            // 创建新涟漪
             const ripple = document.createElement('span');
             ripple.classList.add('ripple');
+            this.appendChild(ripple);
+            
+            // 计算涟漪位置
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
             ripple.style.left = x + 'px';
             ripple.style.top = y + 'px';
             
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
+            // 动画结束后移除
+            setTimeout(() => ripple.remove(), 600);
         });
+    }
+    
+    // 为所有按钮添加涟漪效果
+    const buttons = document.querySelectorAll('.button, .buy-button, .floating-cta, button');
+    buttons.forEach(button => {
+        button.style.position = 'relative';
+        button.style.overflow = 'hidden';
+        addRippleEffect(button);
     });
     
     // 添加数字计数动画
