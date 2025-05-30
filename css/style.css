@@ -895,7 +895,8 @@ ul {
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .footer-links a:hover:after {
@@ -906,6 +907,18 @@ ul {
     margin-right: 8px;
     color: var(--primary-color);
     opacity: 0.8;
+}
+
+/* 备案链接样式 */
+.beian-link {
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.beian-link:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* 响应式设计 */
